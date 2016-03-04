@@ -27,7 +27,8 @@
         android:layout_below="@+id/currency"
         android:layout_alignLeft="@+id/currency"
         android:layout_alignStart="@+id/currency"
-        android:layout_marginTop="44dp" />
+        android:layout_marginTop="44dp"
+        android:onClick="eurodollar" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -39,7 +40,8 @@
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_marginRight="52dp"
-        android:layout_marginEnd="52dp" />
+        android:layout_marginEnd="52dp"
+        android:onClick="dollareuro" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,8 +50,7 @@
         android:ems="10"
         android:id="@+id/currency"
         android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:labelFor="Zet Valuta" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,7 +60,6 @@
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/dollareuro"
         android:layout_marginBottom="56dp"
-        android:labelFor="Valuta"
         android:text="Valuta"
         android:layout_toEndOf="@+id/eurodollar"
         android:layout_toRightOf="@+id/eurodollar" />
