@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,9 +18,8 @@ public class MainActivity extends AppCompatActivity {
     int             speleractief;
     int[]           spelverloop = {0,0,0,0,0,0,0,0,0};
     int[][]         winners = {
-                    {0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8},
-                    {0,4,8}, {2,4,6}
-                    };
+                    {0,1,2}, {3,4,5}, {6,7,8}, {0,3,6},
+                    {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6} };
     int             spelergewonnen;
     boolean         spelAfgelopen;
     TextView        eindText;
@@ -41,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void nieuwSpel(View view){
+        GridLayout gridLayout = (GridLayout) findViewById(R.id.gridLayout);
+        for(int i = 0; i < spelverloop.length; i++){
+            spelverloop[i] = 0;
+            ImageView imageView = (ImageView) gridLayout.getChildAt(i);
+            imageView.setImageResource(0);
+        }
+        speleractief = 1;
+        spelAfgelopen = false;
+        spelergewonnen = 0;
+        eindeSpelLayout.setVisibility(View.GONE);
+    }
 
     public void setImg(View view){
         ImageView image = (ImageView) view;
@@ -62,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 speleractief = 1;
             }
             if(spelAfgelopen){
-                eindeSpel();
+                eindSpel();
             }
         }
 
@@ -92,18 +104,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void eindeSpel(){
+    private void eindSpel(){
         switch (spelergewonnen){
             case 0:
-                eindText.setText("Draw... Start new game?");
+                eindText.setText("Draw... Try again");
+                eindeSpelLayout.setBackgroundColor(0xFF289BBB);
                 break;
             case 1:
-                eindText.setText("Player 1 wins! Start new game?");
+                eindText.setText("Player 1 wins!");
+                eindeSpelLayout.setBackgroundColor(0xFF8D2D2D);
                 break;
             case 2:
-                eindText.setText("Player 2 wins! Start new game?");
+                eindText.setText("Player 2 wins!");
+                eindeSpelLayout.setBackgroundColor(0xFF80B771);
+                break;
         }
         eindeSpelLayout.setVisibility(View.VISIBLE);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

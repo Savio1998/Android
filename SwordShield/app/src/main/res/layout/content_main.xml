@@ -18,7 +18,8 @@
         android:columnCount="3"
         android:rowCount="3"
         android:background="@drawable/cache"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:id="@+id/gridLayout">
 
         <ImageView
             android:layout_width="90dp"
@@ -113,11 +114,13 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerVertical="true"
+        android:layout_height="130dp"
         android:layout_centerHorizontal="true"
         android:focusableInTouchMode="false"
-        android:id="@+id/eindeSpelLayout">
+        android:id="@+id/eindeSpelLayout"
+        android:layout_alignTop="@+id/gridLayout"
+        android:layout_marginTop="100dp"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="150dp"
@@ -125,20 +128,20 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/textView"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="150dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:text="text"
-            android:background="#924444"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New game"
+            android:text="New game?"
             android:id="@+id/newGame"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:visibility="gone" />
+            android:visibility="visible"
+            android:onClick="nieuwSpel" />
     </LinearLayout>
 
 </RelativeLayout>

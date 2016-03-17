@@ -61,7 +61,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Red Button"
         android:id="@+id/button"
         android:layout_below="@+id/imageView"
         android:layout_alignParentLeft="true"
@@ -74,12 +74,10 @@
         android:layout_height="wrap_content"
         android:text="Black wire"
         android:id="@+id/black"
+        android:onClick="random"
         android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:onClick="random" />
+        android:layout_alignRight="@+id/countdown"
+        android:layout_alignEnd="@+id/countdown" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
