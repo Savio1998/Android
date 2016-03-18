@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">通貨換算</string>
+    <string name="action_settings">設定</string>
+
+    <string name="AUD">豪ドル</string>
+    <string name="GBP">英国の池</string>
+    <string name="JPY">日本円</string>
+    <string name="USD">米ドル</string>
+    <string name="EUR">ユーロ</string>
+</resources>

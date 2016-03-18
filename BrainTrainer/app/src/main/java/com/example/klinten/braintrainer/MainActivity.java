@@ -16,6 +16,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView    highscoretext, newhighscoretext;
     int         highscore;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         highscoretext = (TextView) findViewById(R.id.highScore);
         newhighscoretext = (TextView) findViewById(R.id.newhighScore);
-        SharedPreferences preferences = this.getPreferences(Context.MODE_PRIVATE);
+        preferences = this.getPreferences(Context.MODE_PRIVATE);
         highscore = preferences.getInt("highscore", 0);
         Intent intent = getIntent();
         int score = intent.getIntExtra("score", 0);
@@ -67,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if(id == R.id.action_refresh) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("highscore", 0);
+            editor.commit();
+            highscoretext.setText("High score: " + 0);
         }
 
         return super.onOptionsItemSelected(item);
